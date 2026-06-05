@@ -11,6 +11,8 @@
 
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://player.vimeo.com/api/player.js" defer></script>
   <script src="js/script.js" defer></script>
 </head>
 <body>
@@ -31,7 +33,13 @@
 
         <section class="video-panel" aria-label="Videospeler">
           <div class="video-frame" id="video-frame">
-            <video id="step-video" class="step-video" src="video/Stap1_tekenen.mp4" playsinline></video>
+            <iframe
+              id="step-video"
+              class="step-video"
+              src="https://player.vimeo.com/video/1198796187?h=6168f2996e&autoplay=0&muted=0&controls=0&title=0&byline=0&portrait=0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen>
+            </iframe>
 
             <button class="play-button" type="button" id="play-button" aria-label="Video starten of pauzeren">
               <span></span>
@@ -57,22 +65,22 @@
 
       <nav class="step-nav" aria-label="Workshopstappen">
         <button class="step-button is-active" type="button" data-step="0">
-          <span class="step-number">Stap 1</span>
+          <span class="step-number">Stap 01</span>
           <span class="step-name">Tekenen</span>
         </button>
 
         <button class="step-button" type="button" data-step="1">
-          <span class="step-number">Stap 2</span>
+          <span class="step-number">Stap 02</span>
           <span class="step-name">Etsen</span>
         </button>
 
         <button class="step-button" type="button" data-step="2">
-          <span class="step-number">Stap 3</span>
+          <span class="step-number">Stap 03</span>
           <span class="step-name">Inkten</span>
         </button>
 
         <button class="step-button" type="button" data-step="3">
-          <span class="step-number">Stap 4</span>
+          <span class="step-number">Stap 04</span>
           <span class="step-name">Bedrukken</span>
         </button>
       </nav>
