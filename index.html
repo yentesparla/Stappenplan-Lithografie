@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stappenplan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <div class="ambient-grid" aria-hidden="true"></div>
+
+    <section class="screen screen-workshop is-active" id="workshop-screen" aria-labelledby="workshop-title">
+      <div class="workshop-topbar">
+        <button class="ghost-button" type="button" id="restart-button">Start opnieuw</button>
+        <p class="step-count" id="step-count">Stap 1 van 4</p>
+      </div>
+
+      <div class="workshop-layout">
+        <header class="workshop-header">
+          <p class="kicker">Lithografie workshop</p>
+          <h2 id="workshop-title">Maak je eigen Escher-print</h2>
+        </header>
+
+        <section class="video-panel" aria-label="Videospeler">
+          <div class="video-frame" id="video-frame">
+            <video id="step-video" class="step-video" src="video/Stap1_tekenen.mp4" playsinline></video>
+
+            <button class="play-button" type="button" id="play-button" aria-label="Video starten of pauzeren">
+              <span></span>
+            </button>
+          </div>
+
+          <div class="video-controls" aria-hidden="true">
+            <span class="control-dot"></span>
+            <span class="control-track">
+              <span id="control-progress"></span>
+            </span>
+            <span class="control-time" id="control-time">00:00 / 00:34</span>
+          </div>
+        </section>
+
+        <article class="instruction-panel" aria-live="polite">
+          <p class="step-label" id="step-label">Stap 1</p>
+          <h3 id="step-title">Tekenen</h3>
+          <p id="step-text">Leg de aluminiumfolie glad op tafel. Teken met een vet krijt of lithostift je lijnen stevig op het oppervlak.</p>
+          <button class="primary-button" type="button" id="next-button">Volgende stap</button>
+        </article>
+      </div>
+
+      <nav class="step-nav" aria-label="Workshopstappen">
+        <button class="step-button is-active" type="button" data-step="0">
+          <span class="step-number">Stap 1</span>
+          <span class="step-name">Tekenen</span>
+        </button>
+
+        <button class="step-button" type="button" data-step="1">
+          <span class="step-number">Stap 2</span>
+          <span class="step-name">Etsen</span>
+        </button>
+
+        <button class="step-button" type="button" data-step="2">
+          <span class="step-number">Stap 3</span>
+          <span class="step-name">Inkten</span>
+        </button>
+
+        <button class="step-button" type="button" data-step="3">
+          <span class="step-number">Stap 4</span>
+          <span class="step-name">Bedrukken</span>
+        </button>
+      </nav>
+    </section>
+  </main>
+</body>
+</html>
