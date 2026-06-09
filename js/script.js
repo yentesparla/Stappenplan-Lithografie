@@ -1,28 +1,28 @@
 const steps = [
   {
     title: "Tekenen",
-    text: "Leg de aluminiumfolie glad op tafel. Teken met een vet krijt of lithostift je lijnen stevig op het oppervlak.",
+    text: "Kies een van de drie plaatjes met aluminiumfolie: de oneindige trap, de oneindige driehoek of de duivelsvork. Gebruik de vetkrijtjes om er zelf figuren of lijnen bij te tekenen zodat het onderdeel wordt van de illusie. Maak de illusie op jouw eigen manier af!",
     vimeoId: "1198796187",
     vimeoHash: "6168f2996e",
     duration: 34
   },
   {
     title: "Etsen",
-    text: "Wrijf een dun laagje cola over de folie. Maak het oppervlak daarna rustig schoon, zodat de tekening klaar is om inkt vast te houden.",
+    text: "Leg je plaatje in de bak en giet er een beetje cola overheen. Laat dit heel even intrekken. Spoel daarna het plaatje schoon met het sponsje en een beetje water. Dep het voorzichtig droog, maar zorg dat de folie een klein beetje vochtig blijft!",
     vimeoId: "1198796582",
     vimeoHash: "8967b518b8",
     duration: 58
   },
   {
     title: "Inkten",
-    text: "Rol de drukinkt gelijkmatig over de folie. De inkt blijft vooral zitten op de getekende, vette lijnen.",
+    text: "Rol met de verfroller over je tekening. Blijft er overal inkt plakken? Maak je plaatje dan weer een beetje vochtig met het sponsje en rol opnieuw. Herhaal dit een paar keer totdat er bijna geen inkt meer op de rest van de folie zit en je jouw eigen tekening heel duidelijk ziet staan.",
     vimeoId: "1198796941",
     vimeoHash: "aa4cdc651d",
     duration: 48
   },
   {
     title: "Bedrukken",
-    text: "Leg papier op de ingeinkte folie en wrijf stevig maar gelijkmatig. Til het papier langzaam op en bekijk de afdruk.",
+    text: "Leg je papier voorzichtig bovenop de plaat met inkt. Wrijf daarna met je hand stevig over het hele vel papier. Trek het papier er daarna langzaam en voorzichtig af. Tadaa! Jouw eigen Escher-print is klaar!",
     vimeoId: "1198797343",
     vimeoHash: "6a398bcd86",
     duration: 25
@@ -38,13 +38,14 @@ const stepLabel = document.querySelector("#step-label");
 const stepTitle = document.querySelector("#step-title");
 const stepText = document.querySelector("#step-text");
 const videoFrame = document.querySelector("#video-frame");
-const stepVideo = document.querySelector("#step-video");
 const controlProgress = document.querySelector("#control-progress");
 const controlTime = document.querySelector("#control-time");
 
 let activeStep = 0;
 let player = null;
 let progressTimer = null;
+let playRequestPending = false;
+let stepVideo = document.querySelector("#step-video");
 
 function formatTime(seconds) {
   const safeSeconds = Math.max(0, Math.floor(seconds || 0));
@@ -54,8 +55,10 @@ function formatTime(seconds) {
   return `${String(minutes).padStart(2, "0")}:${String(restSeconds).padStart(2, "0")}`;
 }
 
-function getVimeoUrl(step) {
-  return `https://player.vimeo.com/video/${step.vimeoId}?h=${step.vimeoHash}&autoplay=0&muted=0&controls=0&title=0&byline=0&portrait=0`;
+function getVimeoUrl(step, autoplay = false) {
+  const autoplayValue = autoplay ? "1" : "0";
+
+  return `https://player.vimeo.com/video/${step.vimeoId}?h=${step.vimeoHash}&autoplay=${autoplayValue}&muted=0&controls=0&title=0&byline=0&portrait=0&autopause=0`;
 }
 
 function updateVideoProgress(currentTime = 0, duration = steps[activeStep].duration) {
@@ -70,6 +73,21 @@ function stopProgressTimer() {
     clearInterval(progressTimer);
     progressTimer = null;
   }
+}
+
+function setPlaybackState(isPlaying) {
+  videoFrame.classList.toggle("is-playing", isPlaying);
+
+  if (isPlaying) {
+    videoFrame.classList.remove("is-ended");
+  }
+}
+
+function resetPlaybackState() {
+  playRequestPending = false;
+  setPlaybackState(false);
+  videoFrame.classList.remove("is-ended");
+  stopProgressTimer();
 }
 
 function startProgressTimer() {
@@ -91,6 +109,19 @@ function startProgressTimer() {
   }, 250);
 }
 
+function createVimeoIframe(step, autoplay = false) {
+  const iframe = document.createElement("iframe");
+
+  iframe.id = "step-video";
+  iframe.className = "step-video";
+  iframe.src = getVimeoUrl(step, autoplay);
+  iframe.allow = "autoplay; fullscreen; picture-in-picture";
+  iframe.allowFullscreen = true;
+
+  stepVideo.replaceWith(iframe);
+  stepVideo = iframe;
+}
+
 function setupPlayer() {
   if (typeof Vimeo === "undefined") {
     return;
@@ -108,26 +139,61 @@ function setupPlayer() {
     updateVideoProgress(data.seconds, data.duration);
   });
 
+  player.on("play", () => {
+    playRequestPending = false;
+    setPlaybackState(true);
+    startProgressTimer();
+  });
+
+  player.on("pause", () => {
+    playRequestPending = false;
+    setPlaybackState(false);
+    stopProgressTimer();
+  });
+
   player.on("ended", () => {
     updateVideoProgress(steps[activeStep].duration, steps[activeStep].duration);
-    videoFrame.classList.remove("is-playing");
-    stopProgressTimer();
+    showReplayState();
   });
 }
 
+function showReplayState() {
+  const step = steps[activeStep];
+
+  playRequestPending = false;
+  setPlaybackState(false);
+  stopProgressTimer();
+  videoFrame.classList.add("is-ended");
+
+  createVimeoIframe(step, false);
+  setupPlayer();
+  updateVideoProgress(0, step.duration);
+}
+
 function playCurrentVideo() {
+  if (playRequestPending) {
+    return;
+  }
+
   if (!player) {
     setupPlayer();
   }
 
-  videoFrame.classList.add("is-playing");
+  if (!player) {
+    resetPlaybackState();
+    return;
+  }
+
+  playRequestPending = true;
 
   player.ready().then(() => {
-    startProgressTimer();
     return player.play();
+  }).then(() => {
+    playRequestPending = false;
+    setPlaybackState(true);
+    startProgressTimer();
   }).catch(() => {
-    videoFrame.classList.remove("is-playing");
-    stopProgressTimer();
+    resetPlaybackState();
   });
 }
 
@@ -139,11 +205,13 @@ function renderStep(autoplay = false) {
   stepTitle.textContent = step.title;
   stepText.textContent = step.text;
 
-  stopProgressTimer();
-  stepVideo.src = getVimeoUrl(step);
-  player = null;
-  setupPlayer();
+  if (player) {
+    player.pause().catch(() => {});
+  }
 
+  resetPlaybackState();
+  createVimeoIframe(step, autoplay);
+  setupPlayer();
   updateVideoProgress(0, step.duration);
   nextButton.textContent = activeStep === steps.length - 1 ? "Start opnieuw" : "Volgende stap";
 
@@ -160,15 +228,12 @@ function renderStep(autoplay = false) {
 function restartWorkshop() {
   activeStep = 0;
   window.scrollTo(0, 0);
-  videoFrame.classList.remove("is-playing");
-  stopProgressTimer();
   renderStep();
 }
 
 stepButtons.forEach((button) => {
   button.addEventListener("click", () => {
     activeStep = Number(button.dataset.step);
-    videoFrame.classList.remove("is-playing");
     renderStep(true);
   });
 });
@@ -180,15 +245,17 @@ nextButton.addEventListener("click", () => {
   }
 
   activeStep += 1;
-  videoFrame.classList.remove("is-playing");
   renderStep(true);
 });
 
 playButton.addEventListener("click", () => {
+  if (!player) {
+    setupPlayer();
+  }
+
   if (videoFrame.classList.contains("is-playing")) {
     player.pause();
-    videoFrame.classList.remove("is-playing");
-    stopProgressTimer();
+    resetPlaybackState();
   } else {
     playCurrentVideo();
   }
