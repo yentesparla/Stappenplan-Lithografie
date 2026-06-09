@@ -1,7 +1,7 @@
 const steps = [
   {
     title: "Tekenen",
-    text: "Kies een van de drie plaatjes met aluminiumfolie: de oneindige trap, de oneindige driehoek of de duivelsvork. Gebruik de vetkrijtjes om er zelf figuren of lijnen bij te tekenen zodat het onderdeel wordt van de illusie. Maak de illusie op jouw eigen manier af!",
+    text: "Kies een van de drie plaatjes met aluminiumfolie: de oneindige trap, de oneindige driehoek of de duivelsvork. Gebruik de vetkrijtjes om er zelf figuren of lijnen bij te tekenen zodat het onderdeel wordt van de illusie.",
     vimeoId: "1198796187",
     vimeoHash: "6168f2996e",
     duration: 34
