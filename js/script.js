@@ -1,29 +1,25 @@
 const steps = [
   {
     title: "Tekenen",
-    text: "Kies een van de drie plaatjes met aluminiumfolie: de oneindige trap, de oneindige driehoek of de duivelsvork. Gebruik de vetkrijtjes om er zelf figuren of lijnen bij te tekenen zodat het onderdeel wordt van de illusie.",
-    vimeoId: "1198796187",
+    text: "Kies een van de drie plaatjes op aluminiumfolie: de onmogelijke balken, de oneindige driehoek of de duivelsvork. Teken met de vetkrijtjes dikke, duidelijke lijnen zodat je tekening goed zichtbaar wordt.<span class=\"small-break\"></span>Maak jouw tekening een onderdeel van de illusie!",    vimeoId: "1198796187",
     vimeoHash: "6168f2996e",
     duration: 34
   },
   {
     title: "Etsen",
-    text: "Leg je plaatje in de bak en giet er een beetje cola overheen. Laat dit heel even intrekken. Spoel daarna het plaatje schoon met het sponsje en een beetje water. Dep het voorzichtig droog, maar zorg dat de folie een klein beetje vochtig blijft!",
-    vimeoId: "1198796582",
+    text: "Tijd voor de magische vloeistof! Giet een beetje over je plaatje en tel tot 10. Dan heeft de magische vloeistof zijn werk gedaan. Spoel daarna het plaatje schoon met het sponsje en een beetje water.<span class=\"small-break\"></span>Dep het voorzichtig droog, maar zorg dat de folie een klein beetje vochtig blijft!",    vimeoId: "1198796582",
     vimeoHash: "8967b518b8",
     duration: 58
   },
   {
     title: "Inkten",
-    text: "Rol met de verfroller over je tekening. Blijft er overal inkt plakken? Maak je plaatje dan weer een beetje vochtig met het sponsje en rol opnieuw. Herhaal dit een paar keer totdat er bijna geen inkt meer op de rest van de folie zit en je jouw eigen tekening heel duidelijk ziet staan.",
-    vimeoId: "1198796941",
+    text: "1. Rol met de verfroller over je plaatje.\n2. Maak je plaatje weer een beetje vochtig met het sponsje. Het hoeft niet nat te zijn!\n<span class=\"small-break\"></span>Doe deze twee stappen 3 keer tot je tekening duidelijk zichtbaar is en er bijna geen inkt meer op de rest van de folie zit.",    vimeoId: "1198796941",
     vimeoHash: "aa4cdc651d",
     duration: 48
   },
   {
     title: "Bedrukken",
-    text: "Leg je papier voorzichtig bovenop de plaat met inkt. Wrijf daarna met je hand stevig over het hele vel papier. Trek het papier er daarna langzaam en voorzichtig af. Tadaa! Jouw eigen Escher-print is klaar!",
-    vimeoId: "1198797343",
+    text: "Pak een vel papier van het stapeltje. Leg daarna de plaat met inkt voorzichtig boven op het papier. Druk stevig op de achterkant van de plaat, zodat het plaatje op het papier wordt gedrukt.<span class=\"small-break\"></span>Til de plaat daarna langzaam op. Tadaa! Jouw eigen Escher-print is klaar!",    vimeoId: "1198797343",
     vimeoHash: "6a398bcd86",
     duration: 25
   }
@@ -203,7 +199,7 @@ function renderStep(autoplay = false) {
   stepCount.textContent = `Stap ${activeStep + 1} van ${steps.length}`;
   stepLabel.textContent = `Stap ${activeStep + 1}`;
   stepTitle.textContent = step.title;
-  stepText.textContent = step.text;
+  stepText.innerHTML = step.text.replace(/\n/g, '<br>');
 
   if (player) {
     player.pause().catch(() => {});

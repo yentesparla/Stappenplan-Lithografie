@@ -351,7 +351,7 @@ h3 {
 
 .instruction-panel p:not(.step-label) {
   color: var(--muted);
-  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.25rem);
   line-height: 1.62;
 }
 
@@ -509,5 +509,90 @@ h3 {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+#step-text .small-break {
+  display: block;
+  height: 0.90rem;
+}
+
+
+
+
+
+/* Ipad vieuw */
+
+@media (min-width: 768px) and (max-width: 1180px) {
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .screen {
+    height: 100svh;
+    min-height: 100svh;
+    padding: 0.75rem;
+  }
+
+  .screen-workshop.is-active {
+    gap: 0.6rem;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+
+  .workshop-layout {
+    min-height: 0;
+    gap: 0.75rem;
+  }
+
+  .workshop-header {
+    padding-top: 0;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 0.95;
+  }
+
+  .instruction-panel {
+    min-height: 0;
+    padding: 1rem;
+  }
+
+  h3 {
+    margin-bottom: 0.6rem;
+    font-size: clamp(1.55rem, 2.8vw, 2.4rem);
+  }
+
+  .instruction-panel p:not(.step-label) {
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  .primary-button,
+  .ghost-button {
+    min-height: 46px;
+    padding: 0.65rem 1rem;
+  }
+
+  .video-controls {
+    padding: 0.65rem 0.8rem;
+  }
+
+  .step-nav {
+    gap: 0.6rem;
+  }
+
+  .step-button {
+    min-height: 58px;
+    padding: 0.55rem 0.75rem;
+  }
+
+  .step-name {
+    font-size: 1.05rem;
+  }
+
+  #step-text .small-break {
+    height: 0.45rem;
   }
 }
