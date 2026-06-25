@@ -519,7 +519,6 @@ h3 {
 
 
 
-
 @media (min-width: 768px) and (max-width: 1180px) {
   html,
   body {
@@ -553,5 +552,11 @@ h3 {
   .ghost-button {
     font-size: 1rem; /* Houd de knoppen leesbaar */
     padding: 0.65rem 1rem;
+  }
+
+  /* Maak de titel iets kleiner */
+  h1 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem); /* Responsieve grootte voor de titel */
+    line-height: 1.2; /* Houd de titel compact */
   }
 }
