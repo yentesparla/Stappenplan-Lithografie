@@ -596,3 +596,15 @@ h3 {
     height: 0.45rem;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .video-sidebar h1, 
+  .video-sidebar h2, 
+  .video-sidebar p {
+    margin-bottom: 1rem; /* Voeg ruimte toe tussen titels en tekst */
+  }
+
+  .video-sidebar {
+    padding: 1rem; /* Optioneel: meer padding in het kader zelf */
+  }
+}

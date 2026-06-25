@@ -1,7 +1,7 @@
 const steps = [
   {
     title: "Tekenen",
-    text: "Kies een van de drie plaatjes op aluminiumfolie: de onmogelijke balken, de oneindige driehoek of de duivelsvork. Teken met de vetkrijtjes dikke, duidelijke lijnen zodat je tekening goed zichtbaar wordt.<span class=\"small-break\"></span>Maak jouw tekening een onderdeel van de illusie!",    vimeoId: "1198796187",
+    text: "Kies één van de drie plaatjes op het kleine tafeltje: de onmogelijke balken, de oneindige driehoek of de duivelsvork. Teken met de vetkrijtjes dikke, duidelijke lijnen zodat je tekening goed zichtbaar wordt.<span class=\"small-break\"></span>Maak jouw tekening een onderdeel van de illusie!",    vimeoId: "1198796187",
     vimeoHash: "6168f2996e",
     duration: 34
   },
@@ -19,7 +19,7 @@ const steps = [
   },
   {
     title: "Bedrukken",
-    text: "Pak een vel papier van het stapeltje. Leg daarna de plaat met inkt voorzichtig boven op het papier. Druk stevig op de achterkant van de plaat, zodat het plaatje op het papier wordt gedrukt.<span class=\"small-break\"></span>Til de plaat daarna langzaam op. Tadaa! Jouw eigen Escher-print is klaar!",    vimeoId: "1198797343",
+    text: "Pak een vel papier van het stapeltje. Leg daarna de plaat met inkt voorzichtig boven op het papier. Druk stevig op de achterkant van de plaat, zodat je tekening op het papier wordt gedrukt. Til de plaat daarna langzaam op en je print is klaar.<span class=\"small-break\"></span> Hang de print aan het touw om te drogen en vergeet hem niet mee te nemen wanneer je naar huis gaat.",    vimeoId: "1198797343",
     vimeoHash: "6a398bcd86",
     duration: 25
   }
