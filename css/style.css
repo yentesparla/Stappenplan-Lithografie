@@ -528,8 +528,8 @@ h3 {
 
   /* Alleen normale tekst kleiner maken */
   p {
-    font-size: 0.9rem; /* Maak de normale tekst iets kleiner */
-    line-height: 1.4; /* Houd de tekst leesbaar met een kleinere regelafstand */
+    font-size: 0.7rem; /* Maak de normale tekst iets kleiner */
+    line-height: 1.2; /* Houd de tekst leesbaar met een kleinere regelafstand */
   }
 
   .instruction-panel {
