@@ -601,10 +601,10 @@ h3 {
   .video-sidebar h1, 
   .video-sidebar h2, 
   .video-sidebar p {
-    margin-bottom: 1rem; /* Voeg ruimte toe tussen titels en tekst */
+    margin-bottom: 6rem; /* Voeg ruimte toe tussen titels en tekst */
   }
 
   .video-sidebar {
-    padding: 1rem; /* Optioneel: meer padding in het kader zelf */
+    padding: 6rem; /* Optioneel: meer padding in het kader zelf */
   }
 }
