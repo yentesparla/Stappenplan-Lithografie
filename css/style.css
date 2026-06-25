@@ -189,7 +189,8 @@ h3,
 
 h2 {
   margin-bottom: 0;
-  font-size: clamp(1.563rem, 2vw, 1.563rem); /* 25px vast op iPad */  line-height: 1.4;
+  font-size: clamp(1.563rem, 2vw, 1.563rem); /* 25px vast op iPad */  
+  line-height: 1.4;
   letter-spacing: 0.02em;
 }
 
@@ -347,7 +348,6 @@ h3 {
   font-size: clamp(1.438rem, 2vw, 1.438rem); /* 23px vast op iPad */
     line-height: 1.6;
   letter-spacing: 0.02em;
-  margin-bottom: -0.3px;
 }
 
 .instruction-panel p:not(.step-label) {
