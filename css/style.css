@@ -526,6 +526,6 @@ h3 {
 }
 
 
-.step-label{
+.step-label:not(.step-4) {
   margin-top: -2rem; /* Verklein de marge bovenaan */
 }
