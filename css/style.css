@@ -129,6 +129,7 @@ button {
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+
 }
 
 h2,
@@ -188,8 +189,7 @@ h3,
 
 h2 {
   margin-bottom: 0;
-  font-size: clamp(1.875rem, 2.5vw, 1.875rem); /* 30px vast op iPad */
-  line-height: 1.4;
+  font-size: clamp(1.563rem, 2vw, 1.563rem); /* 25px vast op iPad */  line-height: 1.4;
   letter-spacing: 0.02em;
 }
 
@@ -344,8 +344,8 @@ h2 {
 
 h3 {
   margin-bottom: 1rem;
-  font-size: clamp(1.75rem, 2.2vw, 1.75rem); /* 28px vast op iPad */
-  line-height: 1.6;
+  font-size: clamp(1.438rem, 2vw, 1.438rem); /* 23px vast op iPad */
+    line-height: 1.6;
   letter-spacing: 0.02em;
   margin-bottom: -0.3px;
 }
@@ -354,6 +354,7 @@ h3 {
   color: var(--muted);
   font-size: clamp(1.125rem, 1.5vw, 1.125rem); /* 18px vast op iPad */
   line-height: 1.62;
+  margin-top: -15px;
 }
 
 .primary-button {
