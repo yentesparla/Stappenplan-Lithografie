@@ -519,17 +519,23 @@ h3 {
 
 
 
-@media (min-width: 768px) and (max-width: 1180px) {
+@media (min-width: 700px) and (max-width: 1180px) {
   html,
   body {
     height: 100%; /* Zorg dat de hoogte van de pagina wordt gebruikt */
     overflow: hidden; /* Voorkom scrollen */
   }
 
-  /* Alleen normale tekst kleiner maken */
+  /* Maak de titel nog kleiner */
+  h1 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem); /* Responsieve grootte voor de titel */
+    line-height: 1.2; /* Houd de titel compact */
+  }
+
+  /* Maak de doorlopende tekst kleiner */
   p {
-    font-size: 0.7rem; /* Maak de normale tekst iets kleiner */
-    line-height: 1.2; /* Houd de tekst leesbaar met een kleinere regelafstand */
+    font-size: 12px; /* Stel de tekstgrootte in op 12px */
+    line-height: 1.4; /* Houd de tekst leesbaar met een kleinere regelafstand */
   }
 
   .instruction-panel {
@@ -541,7 +547,8 @@ h3 {
 
   .instruction-panel p {
     flex-grow: 1; /* Laat de tekst de beschikbare ruimte innemen */
-    overflow: auto; /* Voeg scrollen toe binnen het kader als er te veel tekst is */
+    max-height: 60%; /* Beperk de hoogte van de tekst tot 60% van het kader */
+    overflow-y: auto; /* Voeg een interne scrollbalk toe als er te veel tekst is */
   }
 
   .step-nav {
@@ -554,9 +561,18 @@ h3 {
     padding: 0.65rem 1rem;
   }
 
-  /* Maak de titel iets kleiner */
-  h1 {
-    font-size: clamp(1.8rem, 3vw, 2.5rem); /* Responsieve grootte voor de titel */
-    line-height: 1.2; /* Houd de titel compact */
+  /* Zorg dat alle stappen even groot zijn */
+  .step {
+    height: 100%; /* Zorg dat elke stap dezelfde hoogte heeft */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .step:nth-child(4) .instruction-panel p {
+    font-size: 12px; /* Maak de tekst kleiner voor stap 4 */
+    line-height: 1.4;
+    max-height: 60%; /* Beperk de hoogte van de tekst */
+    overflow-y: auto; /* Voeg scrollen toe als er te veel tekst is */
   }
 }
