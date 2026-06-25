@@ -520,3 +520,32 @@ h3 {
 
 
 
+@media (min-width: 768px) and (max-width: 1180px) {
+  html,
+  body {
+    height: 100%; /* Zorg dat de hoogte van de pagina wordt gebruikt */
+    overflow: hidden; /* Voorkom scrollen */
+  }
+
+  h2,
+  h3,
+  p {
+    font-size: 90%; /* Maak de tekst iets kleiner */
+  }
+
+  .kicker,
+  .step-label,
+  .step-count {
+    font-size: 0.75rem; /* Verklein de tekstgrootte van deze elementen */
+  }
+
+  .instruction-panel p {
+    font-size: 0.9rem; /* Verklein de tekst in de instructiepanelen */
+    line-height: 1.4; /* Houd de tekst leesbaar met een kleinere regelafstand */
+  }
+
+  .primary-button,
+  .ghost-button {
+    font-size: 0.9rem; /* Verklein de tekst in knoppen */
+  }
+}
