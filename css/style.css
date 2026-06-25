@@ -520,4 +520,7 @@ h3 {
 
 
 
-
+.ghost-button,
+.step-count {
+  margin-top: -0.9rem; /* Verklein de marge bovenaan */
+}
