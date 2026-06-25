@@ -188,8 +188,8 @@ h3,
 
 h2 {
   margin-bottom: 0;
-  font-size: clamp(2.3rem, 5vw, 4.6rem);
-  line-height: 1;
+  font-size: clamp(1.875rem, 2.5vw, 1.875rem); /* 30px vast op iPad */
+  line-height: 1.4;
   letter-spacing: 0.02em;
 }
 
@@ -344,14 +344,15 @@ h2 {
 
 h3 {
   margin-bottom: 1rem;
-  font-size: clamp(1.8rem, 3vw, 3rem);
-  line-height: 1.05;
+  font-size: clamp(1.75rem, 2.2vw, 1.75rem); /* 28px vast op iPad */
+  line-height: 1.6;
   letter-spacing: 0.02em;
+  margin-bottom: -0.3px;
 }
 
 .instruction-panel p:not(.step-label) {
   color: var(--muted);
-  font-size: clamp(1.1rem, 1.8vw, 1.25rem);
+  font-size: clamp(1.125rem, 1.5vw, 1.125rem); /* 18px vast op iPad */
   line-height: 1.62;
 }
 
@@ -519,60 +520,3 @@ h3 {
 
 
 
-@media (min-width: 700px) and (max-width: 1180px) {
-  html,
-  body {
-    height: 100%; /* Zorg dat de hoogte van de pagina wordt gebruikt */
-    overflow: hidden; /* Voorkom scrollen */
-  }
-
-  /* Maak de titel nog kleiner */
-  h1 {
-    font-size: clamp(1.5rem, 2.5vw, 2rem); /* Responsieve grootte voor de titel */
-    line-height: 1.2; /* Houd de titel compact */
-  }
-
-  /* Maak de doorlopende tekst kleiner */
-  p {
-    font-size: 12px; /* Stel de tekstgrootte in op 12px */
-    line-height: 1.4; /* Houd de tekst leesbaar met een kleinere regelafstand */
-  }
-
-  .instruction-panel {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Zorg dat de tekst en knoppen netjes verdeeld zijn */
-    height: 100%; /* Vul het kader volledig */
-  }
-
-  .instruction-panel p {
-    flex-grow: 1; /* Laat de tekst de beschikbare ruimte innemen */
-    max-height: 60%; /* Beperk de hoogte van de tekst tot 60% van het kader */
-    overflow-y: auto; /* Voeg een interne scrollbalk toe als er te veel tekst is */
-  }
-
-  .step-nav {
-    margin-top: 1rem;
-  }
-
-  .primary-button,
-  .ghost-button {
-    font-size: 1rem; /* Houd de knoppen leesbaar */
-    padding: 0.65rem 1rem;
-  }
-
-  /* Zorg dat alle stappen even groot zijn */
-  .step {
-    height: 100%; /* Zorg dat elke stap dezelfde hoogte heeft */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .step:nth-child(4) .instruction-panel p {
-    font-size: 12px; /* Maak de tekst kleiner voor stap 4 */
-    line-height: 1.4;
-    max-height: 60%; /* Beperk de hoogte van de tekst */
-    overflow-y: auto; /* Voeg scrollen toe als er te veel tekst is */
-  }
-}
