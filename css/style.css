@@ -527,25 +527,31 @@ h3 {
     overflow: hidden; /* Voorkom scrollen */
   }
 
-  h2,
-  h3,
+  /* Alleen normale tekst kleiner maken */
   p {
-    font-size: 90%; /* Maak de tekst iets kleiner */
+    font-size: 0.9rem; /* Maak de normale tekst iets kleiner */
+    line-height: 1.4; /* Houd de tekst leesbaar met een kleinere regelafstand */
   }
 
-  .kicker,
-  .step-label,
-  .step-count {
-    font-size: 0.75rem; /* Verklein de tekstgrootte van deze elementen */
+  .instruction-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Zorg dat de tekst en knoppen netjes verdeeld zijn */
+    height: 100%; /* Vul het kader volledig */
   }
 
   .instruction-panel p {
-    font-size: 0.9rem; /* Verklein de tekst in de instructiepanelen */
-    line-height: 1.4; /* Houd de tekst leesbaar met een kleinere regelafstand */
+    flex-grow: 1; /* Laat de tekst de beschikbare ruimte innemen */
+    overflow: auto; /* Voeg scrollen toe binnen het kader als er te veel tekst is */
+  }
+
+  .step-nav {
+    margin-top: 1rem;
   }
 
   .primary-button,
   .ghost-button {
-    font-size: 0.9rem; /* Verklein de tekst in knoppen */
+    font-size: 1rem; /* Houd de knoppen leesbaar */
+    padding: 0.65rem 1rem;
   }
 }
