@@ -19,7 +19,7 @@ const steps = [
   },
   {
     title: "Bedrukken",
-    text: "Pak een vel papier van het stapeltje. Leg daarna de plaat met inkt voorzichtig boven op het papier. Druk stevig op de achterkant van de plaat, zodat je tekening op het papier wordt gedrukt. Til de plaat daarna langzaam op en je print is klaar.<span class=\"small-break\"></span> Hang de print aan het touw om te drogen en vergeet hem niet mee te nemen wanneer je naar huis gaat.",    vimeoId: "1198797343",
+    text: "Pak een vel papier van het stapeltje. Leg daarna de plaat met inkt voorzichtig boven op het papier. Druk stevig op de achterkant van de plaat, zodat je tekening op het papier wordt gedrukt. Til de plaat daarna langzaam op en je print is klaar. Hang de print vervolgens aan het touw om te drogen en vergeet hem niet mee te nemen wanneer je naar huis gaat.",    vimeoId: "1198797343",
     vimeoHash: "6a398bcd86",
     duration: 25
   }
