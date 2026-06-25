@@ -524,3 +524,8 @@ h3 {
 .step-count {
   margin-top: -0.9rem; /* Verklein de marge bovenaan */
 }
+
+
+.step-label{
+  margin-top: -2rem; /* Verklein de marge bovenaan */
+}
